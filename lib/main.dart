@@ -119,14 +119,21 @@ class _FoodAppBarState extends State<FoodAppBar> {
           GridTile(
             footer: Container(
               color: Colors.black38,
-              child: const Center(
-                child:  Text(
-                  'Bánh Cuốn Bà Xuân',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+              padding: EdgeInsets.zero,
+              child: const Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.pink),
+                  Center(
+                    child:  Text(
+                      'Bánh Cuốn Bà Xuân',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(Icons.chevron_right, color: Colors.white),
+                ],
               ),
             ),
             child: Container(
@@ -139,14 +146,21 @@ class _FoodAppBarState extends State<FoodAppBar> {
           GridTile(
             footer: Container(
               color: Colors.black38,
-              child: const Center(
-                child:  Text(
-                  'Bánh Cuốn Bà Xuân',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+              padding: EdgeInsets.zero,
+              child: const Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.pink),
+                  Center(
+                    child:  Text(
+                      'Bánh Cuốn Bà Xuân',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(Icons.chevron_right, color: Colors.white),
+                ],
               ),
             ),
             child: Container(
@@ -159,14 +173,21 @@ class _FoodAppBarState extends State<FoodAppBar> {
           GridTile(
             footer: Container(
               color: Colors.black38,
-              child: const Center(
-                child:  Text(
-                  'Bánh Cuốn Bà Xuân',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+              padding: EdgeInsets.zero,
+              child: const Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.pink),
+                  Center(
+                    child:  Text(
+                      'Bánh Cuốn Bà Xuân',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(Icons.chevron_right, color: Colors.white),
+                ],
               ),
             ),
             child: Container(
@@ -179,14 +200,21 @@ class _FoodAppBarState extends State<FoodAppBar> {
           GridTile(
             footer: Container(
               color: Colors.black38,
-              child: const Center(
-                child:  Text(
-                  'Bánh Cuốn Bà Xuân',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+              padding: EdgeInsets.zero,
+              child: const Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.pink),
+                  Center(
+                    child:  Text(
+                      'Bánh Cuốn Bà Xuân',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(Icons.chevron_right, color: Colors.white),
+                ],
               ),
             ),
             child: Container(
@@ -199,14 +227,21 @@ class _FoodAppBarState extends State<FoodAppBar> {
           GridTile(
             footer: Container(
               color: Colors.black38,
-              child: const Center(
-                child:  Text(
-                  'Bánh Cuốn Bà Xuân',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+              padding: EdgeInsets.zero,
+              child: const Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.pink),
+                  Center(
+                    child:  Text(
+                      'Bánh Cuốn Bà Xuân',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                      ),
+                    ),
                   ),
-                ),
+                  Icon(Icons.chevron_right, color: Colors.white),
+                ],
               ),
             ),
             child: Container(
