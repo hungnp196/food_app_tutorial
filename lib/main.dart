@@ -1,4 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MainApp());
@@ -79,9 +82,6 @@ class _FoodAppBarState extends State<FoodAppBar> {
               icon: const Icon(Icons.menu));
         }),
       ),
-      // body: Center(
-      //   child: _widgetOptions[_selectedIndex],
-      // ),
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
@@ -89,30 +89,36 @@ class _FoodAppBarState extends State<FoodAppBar> {
         mainAxisSpacing: 10,
         crossAxisCount: 2,
         children: <Widget>[
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const PostDetail()));
+            },
+            child: GridTile(
+              footer: Container(
+                color: Colors.black38,
+                padding: EdgeInsets.zero,
+                child: const Row(
+                  children: [
+                    Icon(Icons.favorite, color: Colors.pink),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          'Bánh Cuốn Bà Xuân',
+                          style: TextStyle(fontSize: 15, color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
+                    Icon(Icons.chevron_right, color: Colors.white),
+                  ],
+                ),
               ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image: AssetImage('images/1b86e2cfa14049a98452b370528d6ef8.png'),
+              child: Container(
+                padding: const EdgeInsets.symmetric(),
+                child: const Image(
+                  image:
+                      AssetImage('images/1b86e2cfa14049a98452b370528d6ef8.png'),
+                ),
               ),
             ),
           ),
@@ -123,12 +129,11 @@ class _FoodAppBarState extends State<FoodAppBar> {
               child: const Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Bánh Cuốn Bà Xuân',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ),
@@ -139,7 +144,8 @@ class _FoodAppBarState extends State<FoodAppBar> {
             child: Container(
               padding: const EdgeInsets.symmetric(),
               child: const Image(
-                image: AssetImage('images/2e4fa70465a940a2a33d61919b8cec2c.png'),
+                image:
+                    AssetImage('images/2e4fa70465a940a2a33d61919b8cec2c.png'),
               ),
             ),
           ),
@@ -150,12 +156,11 @@ class _FoodAppBarState extends State<FoodAppBar> {
               child: const Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Bánh Cuốn Bà Xuân',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ),
@@ -166,7 +171,8 @@ class _FoodAppBarState extends State<FoodAppBar> {
             child: Container(
               padding: const EdgeInsets.symmetric(),
               child: const Image(
-                image: AssetImage('images/1446cfe3de32495482afb1ed63b18b7d.png'),
+                image:
+                    AssetImage('images/1446cfe3de32495482afb1ed63b18b7d.png'),
               ),
             ),
           ),
@@ -177,12 +183,11 @@ class _FoodAppBarState extends State<FoodAppBar> {
               child: const Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Bánh Cuốn Bà Xuân',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ),
@@ -193,7 +198,8 @@ class _FoodAppBarState extends State<FoodAppBar> {
             child: Container(
               padding: const EdgeInsets.symmetric(),
               child: const Image(
-                image: AssetImage('images/525861369a3643648daea3853fb8c32e.png'),
+                image:
+                    AssetImage('images/525861369a3643648daea3853fb8c32e.png'),
               ),
             ),
           ),
@@ -204,12 +210,11 @@ class _FoodAppBarState extends State<FoodAppBar> {
               child: const Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Bánh Cuốn Bà Xuân',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ),
@@ -220,7 +225,8 @@ class _FoodAppBarState extends State<FoodAppBar> {
             child: Container(
               padding: const EdgeInsets.symmetric(),
               child: const Image(
-                image: AssetImage('images/c3985b3e09924519a23c0502bbc6c740.png'),
+                image:
+                    AssetImage('images/c3985b3e09924519a23c0502bbc6c740.png'),
               ),
             ),
           ),
@@ -231,12 +237,11 @@ class _FoodAppBarState extends State<FoodAppBar> {
               child: const Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.pink),
-                  Center(
-                    child:  Text(
-                      'Bánh Cuốn Bà Xuân',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Bánh Cuốn Bà Xuân',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
                   ),
@@ -247,7 +252,8 @@ class _FoodAppBarState extends State<FoodAppBar> {
             child: Container(
               padding: const EdgeInsets.symmetric(),
               child: const Image(
-                image: AssetImage('images/ed5a065b62b542d6a1a1dcc085344c9a.png'),
+                image:
+                    AssetImage('images/ed5a065b62b542d6a1a1dcc085344c9a.png'),
               ),
             ),
           ),
@@ -259,23 +265,30 @@ class _FoodAppBarState extends State<FoodAppBar> {
           children: [
             const SizedBox(
               height: 64.0,
-              child:  DrawerHeader(
+              child: DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blue),
-                child: Text('Chức Năng', style: TextStyle(color: Colors.white, fontSize: 18),),
+                child: Text(
+                  'Chức Năng',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
               ),
             ),
             ListTile(
               title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(Icons.star),
-                  Container(
-                    decoration: const BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(width: 1.5, color: Colors.black12),
+                  Expanded(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(width: 1.5, color: Colors.black12),
+                        ),
                       ),
-                    ),
-                    child: const Text(
-                      'Đánh giá',
+                      child: const Text(
+                        'Đánh giá',
+                      ),
                     ),
                   ),
                 ],
@@ -328,6 +341,149 @@ class _FoodAppBarState extends State<FoodAppBar> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class PostDetail extends StatelessWidget {
+  const PostDetail({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detail'),
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            ImageSection(
+              image: 'images/ed5a065b62b542d6a1a1dcc085344c9a.png',
+            ),
+            TitleSection(
+              title: 'Oeschinen Lake Campground',
+            ),
+            DescriptionSection(
+              description:
+                  'Lake Oeschinen lies at the foot of the Blüemlisalp in the  Bernese Alps. Situated 1,578 meters above sea level, it  is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures  and pine forest, leads you to the lake, which warms to 20  degrees Celsius in the summer. Activities enjoyed here  include rowing, and riding the summer toboggan run.',
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Album {
+  final int userId;
+  final int id;
+  final String title;
+
+  const Album({
+    required this.userId,
+    required this.id,
+    required this.title,
+  });
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'userId': int userId,
+        'id': int id,
+        'title': String title,
+      } =>
+        Album(
+          userId: userId,
+          id: id,
+          title: title,
+        ),
+      _ => throw const FormatException('Failed to load album.'),
+    };
+  }
+}
+
+Future<Album> fetchAlbum() async {
+  final response = await http
+      .get(Uri.parse('https://jsonplaceholder.org/posts'));
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+
+class ImageSection extends StatelessWidget {
+  const ImageSection({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      image,
+      width: 600,
+      height: 300,
+      fit: BoxFit.cover,
+    );
+  }
+}
+
+class TitleSection extends StatelessWidget {
+  const TitleSection({super.key, required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        children: [
+          Expanded(
+            child: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.star,
+                  color: Colors.red[500],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 2),
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class DescriptionSection extends StatelessWidget {
+  const DescriptionSection({super.key, required this.description});
+
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Text(
+        description,
+        softWrap: true,
       ),
     );
   }
