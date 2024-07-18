@@ -82,183 +82,7 @@ class _FoodAppBarState extends State<FoodAppBar> {
               icon: const Icon(Icons.menu));
         }),
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 2,
-        children: <Widget>[
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const PostDetail()));
-            },
-            child: GridTile(
-              footer: Container(
-                color: Colors.black38,
-                padding: EdgeInsets.zero,
-                child: const Row(
-                  children: [
-                    Icon(Icons.favorite, color: Colors.pink),
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          'Bánh Cuốn Bà Xuân',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    Icon(Icons.chevron_right, color: Colors.white),
-                  ],
-                ),
-              ),
-              child: Container(
-                padding: const EdgeInsets.symmetric(),
-                child: const Image(
-                  image:
-                      AssetImage('images/1b86e2cfa14049a98452b370528d6ef8.png'),
-                ),
-              ),
-            ),
-          ),
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Bánh Cuốn Bà Xuân',
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image:
-                    AssetImage('images/2e4fa70465a940a2a33d61919b8cec2c.png'),
-              ),
-            ),
-          ),
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Bánh Cuốn Bà Xuân',
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image:
-                    AssetImage('images/1446cfe3de32495482afb1ed63b18b7d.png'),
-              ),
-            ),
-          ),
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Bánh Cuốn Bà Xuân',
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image:
-                    AssetImage('images/525861369a3643648daea3853fb8c32e.png'),
-              ),
-            ),
-          ),
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Bánh Cuốn Bà Xuân',
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image:
-                    AssetImage('images/c3985b3e09924519a23c0502bbc6c740.png'),
-              ),
-            ),
-          ),
-          GridTile(
-            footer: Container(
-              color: Colors.black38,
-              padding: EdgeInsets.zero,
-              child: const Row(
-                children: [
-                  Icon(Icons.favorite, color: Colors.pink),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Bánh Cuốn Bà Xuân',
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.chevron_right, color: Colors.white),
-                ],
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(),
-              child: const Image(
-                image:
-                    AssetImage('images/ed5a065b62b542d6a1a1dcc085344c9a.png'),
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: const PostList(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -347,74 +171,36 @@ class _FoodAppBarState extends State<FoodAppBar> {
 }
 
 class PostDetail extends StatelessWidget {
-  const PostDetail({super.key});
+  const PostDetail({super.key, required this.post});
+
+  final Post post;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail'),
+        title: Text(post.title),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             ImageSection(
-              image: 'images/ed5a065b62b542d6a1a1dcc085344c9a.png',
+              image: post.image,
             ),
             TitleSection(
-              title: 'Oeschinen Lake Campground',
+              category: post.category,
+              title: post.title,
+              publishedAt: post.publishedAt,
+              updatedAt: post.updatedAt
             ),
-            DescriptionSection(
-              description:
-                  'Lake Oeschinen lies at the foot of the Blüemlisalp in the  Bernese Alps. Situated 1,578 meters above sea level, it  is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures  and pine forest, leads you to the lake, which warms to 20  degrees Celsius in the summer. Activities enjoyed here  include rowing, and riding the summer toboggan run.',
-            )
+            ContentSection(
+                content: post.content,
+                status: post.status,
+              ),
           ],
         ),
       ),
     );
-  }
-}
-
-class Album {
-  final int userId;
-  final int id;
-  final String title;
-
-  const Album({
-    required this.userId,
-    required this.id,
-    required this.title,
-  });
-
-  factory Album.fromJson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'userId': int userId,
-        'id': int id,
-        'title': String title,
-      } =>
-        Album(
-          userId: userId,
-          id: id,
-          title: title,
-        ),
-      _ => throw const FormatException('Failed to load album.'),
-    };
-  }
-}
-
-Future<Album> fetchAlbum() async {
-  final response = await http
-      .get(Uri.parse('https://jsonplaceholder.org/posts'));
-
-  if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
-  } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Failed to load album');
   }
 }
 
@@ -425,7 +211,7 @@ class ImageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    return Image.network(
       image,
       width: 600,
       height: 300,
@@ -435,27 +221,33 @@ class ImageSection extends StatelessWidget {
 }
 
 class TitleSection extends StatelessWidget {
-  const TitleSection({super.key, required this.title});
+  const TitleSection({
+    super.key,
+    required this.category,
+    required this.publishedAt,
+    required this.updatedAt,
+    required this.title,
+  });
 
+  final String category;
+  final String publishedAt;
+  final String updatedAt;
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(32),
       child: Row(
         children: [
           Expanded(
-            child: Row(
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+            /*1*/
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  Icons.star,
-                  color: Colors.red[500],
-                ),
+                /*2*/
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 2),
+                  padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     title,
                     style: const TextStyle(
@@ -463,28 +255,268 @@ class TitleSection extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  'Category: $category',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+                Text(
+                  'Published At: $publishedAt',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+                Text(
+                  'Update At: $updatedAt',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                )
               ],
             ),
-          )
+          ),
+          /*3*/
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          const Text('41'),
         ],
       ),
     );
   }
 }
 
-class DescriptionSection extends StatelessWidget {
-  const DescriptionSection({super.key, required this.description});
+class ContentSection extends StatelessWidget {
+  const ContentSection({
+    super.key,
+    required this.content,
+    required this.status,
+  });
 
-  final String description;
+  final String content;
+  final String status;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Text(
-        description,
+        content,
         softWrap: true,
       ),
     );
+  }
+}
+
+// Post class to store post data
+class Post {
+  final int id;
+  final String slug;
+  final String url;
+  final String title;
+  final String content;
+  final String image;
+  final String thumbnail;
+  final String status;
+  final String category;
+  final String publishedAt;
+  final String updatedAt;
+  final int userId;
+
+  const Post({
+    required this.id,
+    required this.slug,
+    required this.url,
+    required this.title,
+    required this.content,
+    required this.image,
+    required this.thumbnail,
+    required this.status,
+    required this.category,
+    required this.publishedAt,
+    required this.updatedAt,
+    required this.userId,
+  });
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'id': int id,
+        'slug': String slug,
+        'url': String url,
+        'title': String title,
+        'content': String content,
+        'image': String image,
+        'thumbnail': String thumbnail,
+        'status': String status,
+        'category': String category,
+        'publishedAt': String publishedAt,
+        'updatedAt': String updatedAt,
+        'userId': int userId,
+      } =>
+        Post(
+          id: id,
+          slug: slug,
+          url: url,
+          title: title,
+          content: content,
+          image: image,
+          thumbnail: thumbnail,
+          status: status,
+          category: category,
+          publishedAt: publishedAt,
+          updatedAt: updatedAt,
+          userId: userId,
+        ),
+      _ => throw const FormatException('Failed to load Post.'),
+    };
+  }
+}
+
+//fetch single post data from api
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late Future<Post> futurePost;
+
+  @override
+  void initState() {
+    super.initState();
+    futurePost = fetchPost();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Post>(
+      future: futurePost,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Text(snapshot.data!.title);
+        } else if (snapshot.hasError) {
+          return Text('${snapshot.error}');
+        }
+        // By default, show a loading spinner.
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+}
+
+Future<Post> fetchPost() async {
+  final response =
+      await http.get(Uri.parse('https://jsonplaceholder.org/posts/1'));
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return Post.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load Post');
+  }
+}
+
+//fetch array of post from api
+class PostList extends StatefulWidget {
+  const PostList({super.key});
+
+  @override
+  State<PostList> createState() => _PostListState();
+}
+
+class _PostListState extends State<PostList> {
+  List<Post> posts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchPosts();
+  }
+
+  Future<void> fetchPosts() async {
+    // you can replace your api link with this link
+    final response =
+        await http.get(Uri.parse('https://jsonplaceholder.org/posts'));
+    if (response.statusCode == 200) {
+      List<dynamic> jsonData = json.decode(response.body);
+      setState(() {
+        posts = jsonData.map((data) => Post.fromJson(data)).toList();
+      });
+    } else {
+      // Handle error if needed
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Post List'),
+      ),
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        padding: const EdgeInsets.all(20),
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return PostCard(post: posts[index]);
+        },
+      ),
+    );
+  }
+}
+
+class PostCard extends StatelessWidget {
+  const PostCard({super.key, required this.post});
+
+  final Post post;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridTile(
+        footer: Container(
+          color: Colors.black38,
+          padding: EdgeInsets.zero,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Icon(Icons.favorite, color: Colors.pink),
+              Expanded(
+                child: Text(
+                  post.title,
+                  style: const TextStyle(fontSize: 15, color: Colors.white),
+                  maxLines: 2,
+                ),
+              ),
+              Icon(Icons.chevron_right, color: Colors.white),
+            ],
+          ),
+        ),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PostDetail(post: post)));
+          },
+          child: Container(
+              padding: const EdgeInsets.symmetric(),
+              child: FittedBox(
+                fit: BoxFit.fill,
+                child: Image.network(post.thumbnail),
+              )),
+        ));
   }
 }
