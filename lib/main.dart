@@ -132,6 +132,7 @@ class _FoodAppBarState extends State<FoodAppBar> {
               },
             ),
             ListTile(
+              
               title: const Text('Gửi bạn bè'),
               selected: _selectedIndex == 2,
               onTap: () {
@@ -500,7 +501,7 @@ class PostCard extends StatelessWidget {
                   maxLines: 2,
                 ),
               ),
-              Icon(Icons.chevron_right, color: Colors.white),
+              const Icon(Icons.chevron_right, color: Colors.white),
             ],
           ),
         ),
